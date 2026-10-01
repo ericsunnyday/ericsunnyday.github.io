@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YouTube Upload — Automated Video Publishing</title>
+<style>
+  :root{
+    --bg:#ffffff; --fg:#1a1d21; --muted:#5b6470; --line:#e3e6ea;
+    --accent:#1f6feb; --panel:#f7f8fa;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--fg);
+    font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans SC",Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:56px 24px 80px}
+  header{border-bottom:1px solid var(--line); padding-bottom:28px; margin-bottom:36px}
+  h1{font-size:30px; line-height:1.3; margin:0 0 10px; letter-spacing:-0.4px}
+  .tag{color:var(--muted); font-size:15px; margin:0}
+  h2{font-size:19px; margin:38px 0 12px; letter-spacing:-0.2px}
+  p{margin:0 0 14px}
+  ul{margin:0 0 14px; padding-left:20px}
+  li{margin-bottom:7px}
+  code{
+    background:var(--panel); border:1px solid var(--line); border-radius:4px;
+    padding:1px 6px; font-size:13.5px;
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  .card{
+    background:var(--panel); border:1px solid var(--line);
+    border-radius:10px; padding:20px 22px; margin:22px 0;
+  }
+  .card p:last-child{margin-bottom:0}
+  a{color:var(--accent)}
+  footer{
+    margin-top:48px; padding-top:22px; border-top:1px solid var(--line);
+    color:var(--muted); font-size:14px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>YouTube Upload</h1>
+    <p class="tag">A personal desktop tool for publishing finished videos to their creator's own YouTube channel.</p>
+  </header>
+
+  <h2>What this app does</h2>
+  <p>
+    YouTube Upload is a small, self-hosted command-line tool. It takes a video file that
+    <strong>the operator has already produced</strong> and publishes it to the operator's own YouTube
+    channel through the official YouTube Data API v3 — setting the title, description, tags,
+    category and privacy status in the same request.
+  </p>
+
+  <h2>Who it is for</h2>
+  <p>
+    It is a single-user tool built for its own operator. It is not a public service, it has no
+    sign-up, and it does not accept third-party users. Only the channel owner ever authorizes it,
+    and it can only ever publish to the channel that granted it access.
+  </p>
+
+  <h2>How the authorization works</h2>
+  <ul>
+    <li>The tool requests exactly one permission: <code>youtube.upload</code> — the ability to upload a video and set its metadata.</li>
+    <li>It cannot read any other YouTube data, cannot modify or delete existing videos, and has no access to any other Google service.</li>
+    <li>Authorization happens once, in the operator's own browser, via Google's standard OAuth 2.0 consent flow.</li>
+    <li>The resulting credential is stored <strong>only on the operator's own computer</strong> and is never sent anywhere else.</li>
+  </ul>
+
+  <h2>What it does not do</h2>
+  <ul>
+    <li>It does not collect, aggregate or resell any data.</li>
+    <li>It does not access Google user data belonging to anyone other than its own operator.</li>
+    <li>It does not use Google user data for advertising, profiling, or training machine-learning models.</li>
+    <li>It does not transfer Google user data to any third party.</li>
+  </ul>
+
+  <div class="card">
+    <p>
+      <strong>Privacy policy:</strong>
+      <a href="privacy.html">privacy.html</a> — how this tool handles Google user data.
+    </p>
+  </div>
+
+  <footer>
+    Contact: <a href="mailto:verobinenlo@gmail.com">verobinenlo@gmail.com</a><br>
+    Last updated: 1 October 2026
+  </footer>
+
+</div>
+</body>
+</html>
